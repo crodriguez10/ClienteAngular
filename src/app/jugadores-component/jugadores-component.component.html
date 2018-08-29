@@ -1,0 +1,79 @@
+
+<div class="jumbotron">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ 
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+       <h4>Listado jugadores</h4>
+    </ul>
+    <button class="btn btn-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#exampleModal">Crear</button>
+    
+  </div>
+</nav>
+  
+	<table  class="table table-hover">
+	<tr class="table-active">
+		<th scope="col" >Id</th>
+	    <th scope="col" >Nombre</th>
+	    <th scope="col" >Posicion</th>
+	</tr>
+	<tr  *ngFor="let jugador of jugadores">
+	    <td> {{ jugador.id }} </td>
+	    <td> {{ jugador.nombre }} </td>
+	    <td> {{ jugador.posicion }} </td>
+	</tr>
+	</table>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="$myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal" id="myModal" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <div class="input-group">
+          <input id="nombre" class="form-control" placeholder="nombre" name="nombre">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button">
+              <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+  </div>
+</ng-template>-->
