@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { JugadoresComponentComponent } from './jugadores-component/jugadores-component.component';
 import {AppRoutingModule} from  './app-routing.module';
 import { HttpClientModule } from  '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { HttpClientModule } from  '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
