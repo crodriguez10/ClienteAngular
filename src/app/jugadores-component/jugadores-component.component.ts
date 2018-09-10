@@ -14,6 +14,7 @@ export class JugadoresComponentComponent implements OnInit {
 	private success:boolean;
 	private closeResult: string;
 	private jugador:Jugador;
+	private mensaje:string;
 
 	constructor(private  apiService:  ApiService, 
 		        private modalService: NgbModal
@@ -58,11 +59,13 @@ export class JugadoresComponentComponent implements OnInit {
 	}
 
 	public guardar(){
-
+		
 		this.apiService.savePlayer(this.jugador).subscribe((response) =>{
 			console.log(response);
 			this.success = true;
+			this.mensaje = "guardado";
 			this.modalService.dismissAll();
+			this.getPlayers();
 		});
 	}
 
@@ -72,6 +75,8 @@ export class JugadoresComponentComponent implements OnInit {
 		this.apiService.deletePlayer(id).subscribe((response) =>{
 			console.log(response);
 			this.jugadores.splice(index,1);
+			this.success = true;
+			this.mensaje = "eliminado";
 		});
 	}
 

@@ -7,8 +7,8 @@ import { Jugador } from './jugadores-component/jugador';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token'
+    'Accept': 'application/json',
+    'Content-Type':  'application/json'
   })
 };
 
@@ -26,12 +26,13 @@ export class ApiService {
 	}
 
 	savePlayer(jugador: Jugador): Observable<Jugador> {
-  		console.log("savePlayer"+jugador);
+  		console.log("savePlayer"+jugador.nombre);
     	return  this.httpClient.post<Jugador>(`${this.API_URL}/jugadores`, jugador, httpOptions);
 	}
 
 	deletePlayer(id){
   		console.log("id: "+id);
-    	return  this.httpClient.delete(`${this.API_URL}/jugadores`,id);
+    	return  this.httpClient.delete(`${this.API_URL}/jugadores/${id}`);
 	}
+
 }
