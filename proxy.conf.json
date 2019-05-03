@@ -1,0 +1,8 @@
+{
+ "/devops/*": {
+   "target": "http://10.125.67.52:8090/",
+   "secure": false,
+   "logLevel": "debug",
+   "changeOrigin": true
+ }
+}

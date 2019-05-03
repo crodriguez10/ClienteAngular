@@ -16,13 +16,19 @@
 	<tr class="table-active">
 		<th scope="col" >Id</th>
 	    <th scope="col" >Nombre</th>
-	    <th scope="col" >Posicion</th>
+	    <th scope="col" >Estado</th>
       <th scope="col" >Accion</th>
 	</tr>
 	<tr  *ngFor="let jugador of jugadores; let i = index ">
 	    <td> {{ jugador.id }} </td>
 	    <td> {{ jugador.nombre }} </td>
-	    <td> {{ jugador.posicion }} </td>
+	    <!--<td> {{ jugador.estado }} </td>-->
+      <td>
+      <select class="form-control" name="multipleEstado" id="estado" [(value)]="jugador.estado" disabled="true">
+          <option *ngFor="let estado of estados" [(value)]="estado.id">     
+             {{estado.nombre}}</option>
+          </select>
+        </td>
       <td class="form-inline my-2 my-lg-0">
 
         <button type="button" class="btn btn-danger mr-sm-2" (click)="eliminar(jugador.id, i)">Eliminar</button>
@@ -42,16 +48,23 @@
   <div class="modal-body">
     <form>
       <div class="form-group">
-      <input class="form-control" hidden="hidden" name="id" [(ngModel)]="jugador.id">
+      <label for="nombre">ID</label>
+      <div class="input-group">
+        <input class="form-control"  placeholder="id" name="id" [(ngModel)]="jugador.id">
+        </div>
         <label for="nombre">Nombre</label>
         <div class="input-group">
           <input class="form-control" placeholder="nombre" name="nombre" [(ngModel)]="jugador.nombre">
         </div>
       </div>
       <div class="form-group">
-        <label for="nombre">Posicion</label>
+        <label for="nombre">Estado</label>
         <div class="input-group">
-          <input  class="form-control" placeholder="posicion" name="posicion" [(ngModel)]="jugador.posicion">
+          <!--<input  class="form-control" placeholder="estado" name="estado" [(ngModel)]="jugador.estado">-->
+          <select class="form-control" name="multipleEstado" id="estado" [(ngModel)]="jugador.estado">
+          <option *ngFor="let estado of estados" [(value)]="estado.id">     
+             {{estado.nombre}}</option>
+          </select>
         </div>
       </div>  
     </form>
@@ -64,5 +77,9 @@
 <div class="alert alert-dismissible alert-success" *ngIf="success">
   <button type="button" class="close" data-dismiss="alert" (click)="success=false">&times;</button>
   <strong>Registro {{mensaje}}!</strong> 
+</div>
+<div class="alert alert-dismissible alert-danger" *ngIf="error">
+  <button type="button" class="close" data-dismiss="alert" (click)="error=false">&times;</button>
+  <strong>Ocurrio un error !</strong> 
 </div>
 </div>

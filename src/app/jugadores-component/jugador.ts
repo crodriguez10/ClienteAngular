@@ -1,5 +1,12 @@
 export interface Jugador {
   id: string;
   nombre: string;
-  posicion: string;
+  estado: string;
+
+    /*constructor(id, nombre, estado){
+    	this.id = id;
+    	this.nombre = nombre;
+
+	}*/
 }
+

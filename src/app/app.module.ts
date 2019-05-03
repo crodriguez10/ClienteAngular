@@ -7,11 +7,13 @@ import {AppRoutingModule} from  './app-routing.module';
 import { HttpClientModule } from  '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { SorteoComponent } from './sorteo/sorteo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    JugadoresComponentComponent
+    JugadoresComponentComponent,
+    SorteoComponent
   ],
   imports: [
     BrowserModule,

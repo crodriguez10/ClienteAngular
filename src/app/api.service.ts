@@ -16,18 +16,20 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ApiService {
-	API_URL  =  'http://localhost:7800';
+	//API_URL  =  'http://localhost:7800';
+  //API_URL  = 'http://18.217.82.47:8090/devops';
+  API_URL  = 'http://10.125.67.52:8090/devops';
 
   	constructor(private  httpClient:  HttpClient) { }
 
   	getPlayers(){
-  		//console.log(this.httpClient.get(`${this.API_URL}/jugadores`));
-    	return  this.httpClient.get(`${this.API_URL}/jugadores`);
+  		console.log(`${this.API_URL}/obtenerTodosParticipantes`);
+    	return  this.httpClient.get<Jugador[]>(`${this.API_URL}/obtenerTodosParticipantes`, httpOptions);
 	}
 
 	savePlayer(jugador: Jugador): Observable<Jugador> {
   		console.log("savePlayer"+jugador.nombre);
-    	return  this.httpClient.post<Jugador>(`${this.API_URL}/jugadores`, jugador, httpOptions);
+    	return  this.httpClient.post<Jugador>(`${this.API_URL}/crearParticipante`, jugador, httpOptions);
 	}
 
 	deletePlayer(id){
