@@ -10,8 +10,8 @@ import { Estado } from './Estado';
   styleUrls: ['./jugadores-component.component.css']
 })
 export class JugadoresComponentComponent implements OnInit {
-	
-	private jugadores: Array<object> = [];
+
+	private jugadores: Array<any> = [];
 	private success:boolean;
 	private error:boolean;
 	private closeResult: string;
@@ -19,15 +19,15 @@ export class JugadoresComponentComponent implements OnInit {
 	private mensaje:string;
 	private estados: Array<object> = [];
 
-	constructor(private  apiService:  ApiService, 
+	constructor(private  apiService:  ApiService,
 		        private modalService: NgbModal
 		) { }
 
 	ngOnInit() {
-		this.getPlayers();	
+		this.getPlayers();
 		this.success = false;
 		this.estados.push({'id':'1', 'nombre': 'activo'},
-						  {'id':'0', 'nombre': 'inactivo'}) 
+						  {'id':'0', 'nombre': 'inactivo'})
 	}
 
 	public getPlayers(){
@@ -41,7 +41,7 @@ export class JugadoresComponentComponent implements OnInit {
 	}
 
 	open(content, action, jugador) {
-		
+
 		if(action == 'modificar'){
 			this.jugador = jugador;
 		}else{
@@ -93,7 +93,7 @@ export class JugadoresComponentComponent implements OnInit {
 		});
 	}
 
-	
+
 
 	public eliminar(id, index){
 		this.eliminarJugador(id);
