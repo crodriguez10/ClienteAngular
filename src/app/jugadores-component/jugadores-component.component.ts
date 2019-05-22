@@ -96,13 +96,13 @@ export class JugadoresComponentComponent implements OnInit {
 
 
 	public eliminar(id, index){
-		this.eliminarJugador(id);
-		/*this.apiService.deletePlayer(id).subscribe((response) =>{
+		//this.eliminarJugador(id);
+		this.apiService.deletePlayer(id).subscribe((response) =>{
 			console.log(response);
 			this.jugadores.splice(index,1);
 			this.success = true;
 			this.mensaje = "eliminado";
-		});*/
+		});
 	}
 
 	public eliminarJugador(id){

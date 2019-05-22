@@ -23,23 +23,23 @@ export class ApiService {
   constructor(private httpClient: HttpClient) { }
 
   getPlayers() {
-    console.log(`${this.API_URL}/obtenerTodosParticipantes`);
+    //console.log(`${this.API_URL}/obtenerTodosParticipantes`);
     return this.httpClient.get<Jugador[]>(`${this.API_URL}/obtenerTodosParticipantes`, httpOptions);
   }
 
   getActivePlayers(){
-    console.log(`${this.API_URL}/obtenerParticipanteEstado/1`);
+    //console.log(`${this.API_URL}/obtenerParticipanteEstado/1`);
     return this.httpClient.get<Jugador[]>(`${this.API_URL}/obtenerParticipanteEstado/1`, httpOptions);
   }
 
   savePlayer(jugador: Jugador): Observable<Jugador> {
-    console.log("savePlayer" + jugador.nombre);
+    //console.log("savePlayer" + jugador.nombre);
     return this.httpClient.post<Jugador>(`${this.API_URL}/crearParticipante`, jugador, httpOptions);
   }
 
   deletePlayer(id) {
-    console.log("id: " + id);
-    return this.httpClient.delete(`${this.API_URL}/jugadores/${id}`);
+    //console.log("id: " + id);
+    return this.httpClient.delete<Jugador>(`${this.API_URL}/eliminarParticipante/${id}`, httpOptions);
   }
 
 }
